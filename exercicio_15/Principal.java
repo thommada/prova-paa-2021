@@ -5,40 +5,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class Principal {
-    public static void main(String[] args) {
-        int op=0;
-        boolean verify = true;
-        int n;
-        int vetor[];
-        Scanner ler = new Scanner(System.in);
-        do{
-            System.out.println("Escolha uma abordagem: ");
-            System.out.println("1: " + string_abordagem(1));
-            System.out.println("2: " + string_abordagem(2));
-            System.out.print("Opção: ");
-            op = ler.nextInt();
-            if(op==1)
-                verify = false;
-            if(op==2)
-                verify = false;
-            System.out.println("Abordagem Escolhida: "+ string_abordagem(op));
-        }while (verify);
-        verify=true;
-        do{
-            System.out.println("Tamanho do Vetor: ");
-            n = ler.nextInt();
-            if(n>=2 && n<=999999999){
-                verify=false;
-                System.out.println("Tamanho Escolhido : Válido = "+n);
-            }
-            else{
-                System.out.println("Escolha um tamanho de vetor válido. (Entre 2 e 999999999");
-            }
-        }while (verify);
-        vetor = cria_vetor(n);
-        executar(vetor,op);
-
-    }
+    
     public static void executar(int vetor[], int abordagem){
         int fim_maior = vetor.length-1; // posicao final do vetor
         for(int i=0; i<vetor.length; i++){ //imprimir vetor
@@ -122,5 +89,39 @@ public class Principal {
             default:
                 return "Nenhuma opção válida escolhida! Por favor, escolha entre as opções válidas.";
         }
+    }
+    public static void main(String[] args) {
+        int op=0;
+        boolean verify = true;
+        int n;
+        int vetor[];
+        Scanner ler = new Scanner(System.in);
+        do{
+            System.out.println("Escolha uma abordagem: ");
+            System.out.println("1: " + string_abordagem(1));
+            System.out.println("2: " + string_abordagem(2));
+            System.out.print("Opção: ");
+            op = ler.nextInt();
+            if(op==1)
+                verify = false;
+            if(op==2)
+                verify = false;
+            System.out.println("Abordagem Escolhida: "+ string_abordagem(op));
+        }while (verify);
+        verify=true;
+        do{
+            System.out.println("Tamanho do Vetor: ");
+            n = ler.nextInt();
+            if(n>=2 && n<=999999999){
+                verify=false;
+                System.out.println("Tamanho Escolhido : Válido = "+n);
+            }
+            else{
+                System.out.println("Escolha um tamanho de vetor válido. (Entre 2 e 999999999");
+            }
+        }while (verify);
+        vetor = cria_vetor(n);
+        executar(vetor,op);
+        ler.close();
     }
 }
